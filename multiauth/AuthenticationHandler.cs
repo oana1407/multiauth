@@ -4,18 +4,18 @@
 
 	public class AuthenticationHandler
 	{
-		private List<ICanAuthenticationUsers> authenticationModules;
+		private List<ICanAuthenticateUsers> authenticationModules;
 
 		public AuthenticationHandler()
 		{
-			this.authenticationModules = new List<ICanAuthenticationUsers>();
+			this.authenticationModules = new List<ICanAuthenticateUsers>();
 			RegisterAuthenticationModules();
 
 		}
 
 		//private FormsAuthentication formsAuthentication;
 
-		public List<ICanAuthenticationUsers> Modules => this.authenticationModules;
+		public List<ICanAuthenticateUsers> Modules => this.authenticationModules;
 
 		public void RegisterAuthenticationModules()
 		{
@@ -28,6 +28,7 @@
 				//formsAuthentication.NextModule = windowsAuthentication;
 				//windowsAuthentication.NextModule = googleAuthentication;
 
+				
 				this.authenticationModules.Add( formsAuthentication );
 				this.authenticationModules.Add( googleAuthentication );
 				this.authenticationModules.Add( windowsAuthentication );
@@ -35,7 +36,7 @@
 
 		}
 
-		//public ICanAuthenticationUsers StartAuthenticationModule()
+		//public ICanAuthenticateUsers StartAuthenticationModule()
 		//{
 		//	return this.formsAuthentication;
 		//}

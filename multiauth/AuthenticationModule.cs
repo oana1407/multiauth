@@ -1,8 +1,8 @@
 using multiauth;
 
-public abstract class AuthenticationModule : ICanAuthenticationUsers
+public abstract class AuthenticationModule : ICanAuthenticateUsers
 {
-	public ICanAuthenticationUsers NextModule { get; set; }
+	public ICanAuthenticateUsers NextModule { get; set; }
 
 	public abstract bool LogIn(string UserName, string Password);
 
