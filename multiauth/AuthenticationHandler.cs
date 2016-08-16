@@ -33,7 +33,7 @@ namespace multiauth
 
 				foreach (var authFile in authFiles)
 				{
-					Console.WriteLine("AuthenticationModule: {0}", authFile);
+					//Console.WriteLine("AuthenticationModule: {0}", authFile);
 
 					var assembly = Assembly.LoadFrom(authFile);
 
@@ -41,10 +41,11 @@ namespace multiauth
 											.Where( type => !type.IsAbstract
 														 && typeof( ICanAuthenticateUsers ).IsAssignableFrom(type)
 												);
-					Console.WriteLine( "--> registered module: {0}", Path.GetFileNameWithoutExtension(authFile) );
 
 					foreach (var authModule in authModules)
 					{
+						Console.WriteLine( "--> registered module: {0}", Path.GetFileNameWithoutExtension( authFile ) );
+
 						var iAuthModule = Activator.CreateInstance(authModule) as ICanAuthenticateUsers;
 
 						this.authenticationModules.Add(iAuthModule);
