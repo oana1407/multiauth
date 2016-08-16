@@ -5,6 +5,14 @@ VisualStudioVersion = 14.0.25420.1
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "multiauth", "multiauth.csproj", "{DF787114-F9C9-4D93-8A38-8C9DBDD81D7D}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GoogleAuthenticationModule", "GoogleAuthenticationModule\GoogleAuthenticationModule.csproj", "{60F78892-EDF1-4788-9943-49D394945DC8}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AuthenticationModule", "AuthenticationModule\AuthenticationModule.csproj", "{B01F907F-7A06-4BB7-8644-8271FADE8C07}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WindowsAuthenticationModule", "WindowsAuthenticationModule\WindowsAuthenticationModule.csproj", "{3DBD3419-6A7F-4CB4-B0EF-A69B45751BBD}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FormsAuthenticationModule", "..\FormsAuthenticationModule\FormsAuthenticationModule.csproj", "{DB82ACA2-0B29-470A-8FD8-48DDBF537BBE}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +23,22 @@ Global
 		{DF787114-F9C9-4D93-8A38-8C9DBDD81D7D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{DF787114-F9C9-4D93-8A38-8C9DBDD81D7D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{DF787114-F9C9-4D93-8A38-8C9DBDD81D7D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{60F78892-EDF1-4788-9943-49D394945DC8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{60F78892-EDF1-4788-9943-49D394945DC8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{60F78892-EDF1-4788-9943-49D394945DC8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{60F78892-EDF1-4788-9943-49D394945DC8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B01F907F-7A06-4BB7-8644-8271FADE8C07}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B01F907F-7A06-4BB7-8644-8271FADE8C07}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B01F907F-7A06-4BB7-8644-8271FADE8C07}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B01F907F-7A06-4BB7-8644-8271FADE8C07}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3DBD3419-6A7F-4CB4-B0EF-A69B45751BBD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3DBD3419-6A7F-4CB4-B0EF-A69B45751BBD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3DBD3419-6A7F-4CB4-B0EF-A69B45751BBD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3DBD3419-6A7F-4CB4-B0EF-A69B45751BBD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DB82ACA2-0B29-470A-8FD8-48DDBF537BBE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DB82ACA2-0B29-470A-8FD8-48DDBF537BBE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DB82ACA2-0B29-470A-8FD8-48DDBF537BBE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DB82ACA2-0B29-470A-8FD8-48DDBF537BBE}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

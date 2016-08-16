@@ -1,6 +1,12 @@
-﻿namespace multiauth
+﻿using System.Collections.Generic;
+namespace multiauth
 {
-	using System.Collections.Generic;
+	using System;
+	using System.IO;
+	using System.Linq;
+	using System.Reflection;
+
+	using AuthenticationModule;
 
 	public class AuthenticationHandler
 	{
@@ -21,19 +27,42 @@
 		{
 			if (authenticationModules.Count == 0)
 			{
-				var formsAuthentication = new FormsAuthentication();
-				var windowsAuthentication = new WindowsAuthentication();
-				var googleAuthentication = new GoogleAuthentication();
+				var authFiles = Directory.GetFiles(AppDomain.CurrentDomain.BaseDirectory, "*.dll")
+										.Where(file => file.EndsWith("AuthenticationModule.dll"))
+										;
 
-				//formsAuthentication.NextModule = windowsAuthentication;
-				//windowsAuthentication.NextModule = googleAuthentication;
+				foreach (var authFile in authFiles)
+				{
+					Console.WriteLine("AuthenticationModule: {0}", authFile);
 
-				
-				this.authenticationModules.Add( formsAuthentication );
-				this.authenticationModules.Add( googleAuthentication );
-				this.authenticationModules.Add( windowsAuthentication );
+					var assembly = Assembly.LoadFrom(authFile);
+
+					var authModules = assembly.GetTypes()
+											.Where( type => !type.IsAbstract
+														 && typeof( ICanAuthenticateUsers ).IsAssignableFrom(type)
+												);
+					Console.WriteLine( "--> registered module: {0}", Path.GetFileNameWithoutExtension(authFile) );
+
+					foreach (var authModule in authModules)
+					{
+						var iAuthModule = Activator.CreateInstance(authModule) as ICanAuthenticateUsers;
+
+						this.authenticationModules.Add(iAuthModule);
+					}
+				}
+
+				//var formsAuthentication = new FormsAuthentication();
+				//var windowsAuthentication = new WindowsAuthentication();
+				//var googleAuthentication = new GoogleAuthentication();
+
+				////formsAuthentication.NextModule = windowsAuthentication;
+				////windowsAuthentication.NextModule = googleAuthentication;
+
+
+				//this.authenticationModules.Add( formsAuthentication );
+				//this.authenticationModules.Add( googleAuthentication );
+				//this.authenticationModules.Add( windowsAuthentication );
 			}
-
 		}
 
 		//public ICanAuthenticateUsers StartAuthenticationModule()

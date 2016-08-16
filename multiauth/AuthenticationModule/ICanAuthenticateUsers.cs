@@ -1,4 +1,4 @@
-﻿namespace multiauth
+﻿namespace AuthenticationModule
 {
 	public interface ICanAuthenticateUsers
 	{

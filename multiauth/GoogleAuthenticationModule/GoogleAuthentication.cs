@@ -1,10 +1,12 @@
-﻿namespace multiauth
+﻿namespace GoogleAuthenticationModule
 {
 	using System;
 
-	public class GoogleAuthentication : AuthenticationModule
+	using AuthenticationModule;
+
+	public class GoogleAuthentication : ICanAuthenticateUsers
 	{
-		public override bool LogIn(string UserName, string Password)
+		public  bool LogIn(string UserName, string Password)
 		{
 			Console.WriteLine( "{0}: ", this.GetType().Name );
 			var logIn = UserName == "goog" && Password == "g00gl3";
@@ -15,10 +17,12 @@
 			return logIn;
 		}
 
-		public override bool LogOut(string UserName)
+		public bool LogOut(string UserName)
 		{
 			Console.WriteLine( "user {0} was logged out", UserName );
 			return true;
 		}
+
+		public ICanAuthenticateUsers NextModule { get; set; }
 	}
 }

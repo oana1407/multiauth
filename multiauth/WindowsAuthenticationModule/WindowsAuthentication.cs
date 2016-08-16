@@ -1,10 +1,12 @@
-﻿namespace multiauth
+﻿namespace WindowsAuthenticationModule
 {
 	using System;
 
-	public class WindowsAuthentication : AuthenticationModule
+	using AuthenticationModule;
+
+	public class WindowsAuthentication : ICanAuthenticateUsers
 	{
-		public override bool LogIn(string UserName, string Password)
+		public bool LogIn(string UserName, string Password)
 		{
 			Console.WriteLine( "{0}: ", this.GetType().Name );
 			var logIn = UserName == "gigel" && Password == "g!g3l3";
@@ -17,10 +19,12 @@
 			return logIn;
 		}
 
-		public override bool LogOut(string UserName)
+		public bool LogOut(string UserName)
 		{
 			Console.WriteLine( "user {0} was logged out", UserName );
 			return true;
 		}
+
+		public ICanAuthenticateUsers NextModule { get; set; }
 	}
 }
