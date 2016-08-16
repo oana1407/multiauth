@@ -11,7 +11,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AuthenticationModule", "Aut
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WindowsAuthenticationModule", "WindowsAuthenticationModule\WindowsAuthenticationModule.csproj", "{3DBD3419-6A7F-4CB4-B0EF-A69B45751BBD}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FormsAuthenticationModule", "..\FormsAuthenticationModule\FormsAuthenticationModule.csproj", "{DB82ACA2-0B29-470A-8FD8-48DDBF537BBE}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FormsAuthenticationModule", "FormsAuthenticationModule\FormsAuthenticationModule.csproj", "{DB82ACA2-0B29-470A-8FD8-48DDBF537BBE}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
