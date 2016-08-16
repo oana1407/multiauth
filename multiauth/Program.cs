@@ -15,7 +15,13 @@ namespace multiauth
 			var authHandlers = new AuthenticationHandler();
 			//var authModule = authHandlers.StartAuthenticationModule();
 
-			if (args.Length != 2) return;
+			if (args.Length != 2)
+			{
+				Console.WriteLine("no credentials. exiting");
+				Console.ReadLine();
+				return;
+			}
+			
 
 			var userName = args[0];
 			var password = args[1];
