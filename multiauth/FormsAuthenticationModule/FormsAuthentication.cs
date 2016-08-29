@@ -1,15 +1,38 @@
-﻿namespace FormsAuthenticationModule
+﻿using System.Configuration;
+using System;
+using System.Data.SqlClient;
+using System.Linq;
+using AuthenticationModule;
+using log4net.Config;
+using Dapper;
+
+namespace FormsAuthenticationModule
 {
-	using System;
-
-	using AuthenticationModule;
-
-	public class FormsAuthentication : ICanAuthenticateUsers
+	public class FormsAuthentication : AuthenticationModule.AuthenticationModule
 	{
-		public bool LogIn(string UserName, string Password)
+		private string connectionString;
+
+		public FormsAuthentication()
+		{
+			XmlConfigurator.Configure();
+			connectionString = ConfigurationManager.ConnectionStrings["cs2"]
+													.ConnectionString;
+
+		}
+		public override bool LogIn(string UserName, string Password)
 		{
 			Console.WriteLine("{0}: ", this.GetType().Name);
-			var logIn = UserName == "costel" && Password == "c0st3l3!";
+
+			bool logIn;
+
+			using (var conn = new SqlConnection(connectionString) )
+			{
+				var user = conn.Query<User>("select UserName=@UserName, Password=@Password",
+								new {UserName = UserName, Password = Password})
+								.SingleOrDefault();
+
+				logIn = user != null;
+			}
 
 			if (!logIn)
 			{
@@ -18,7 +41,7 @@
 			return logIn;
 		}
 
-		public bool LogOut(string UserName)
+		public override bool LogOut(string UserName)
 		{
 			Console.WriteLine("user {0} was logged out", UserName);
 			return true;

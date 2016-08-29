@@ -3,14 +3,18 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using log4net.Config;
+using log4net;
 
 namespace multiauth
 {
-
 	public class Program
 	{
+		readonly static ILog log = LogManager.GetLogger( typeof( Program ) );
 		static void Main( string[] args )
 		{
+			XmlConfigurator.Configure();
+
 			var reply = 0;
 			var authHandlers = new AuthenticationHandler();
 			//var authModule = authHandlers.StartAuthenticationModule();
@@ -19,10 +23,11 @@ namespace multiauth
 			{
 				Console.WriteLine("no credentials. exiting");
 				Console.ReadLine();
+				log.ErrorFormat( "no credentials. exiting" );
 				return;
 			}
 			
-
+			
 			var userName = args[0];
 			var password = args[1];
 
