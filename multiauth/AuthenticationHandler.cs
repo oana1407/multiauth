@@ -65,12 +65,7 @@ namespace multiauth
 				//this.authenticationModules.Add( windowsAuthentication );
 			}
 		}
-
-		//public ICanAuthenticateUsers StartAuthenticationModule()
-		//{
-		//	return this.formsAuthentication;
-		//}
-
+		
 		public bool TryAll(string userName, string password)
 		{
 			bool login = false;
@@ -78,9 +73,7 @@ namespace multiauth
 			{
 				login = module.LogIn(userName, password);
 				if (login) return login;
-				//{
-				//	if (module.NextModule != null) login = module.NextModule.LogIn(userName, password);
-				//}
+				
 			}
 
 			return login;

@@ -1,0 +1,12 @@
+﻿################################################################################
+# This .gitignore file was automatically created by Microsoft(R) Visual Studio.
+################################################################################
+
+*.suo
+/multiauth/AuthenticationModule/bin
+/multiauth/AuthenticationModule/obj
+/multiauth/bin/Debug
+/multiauth/bin/Release
+/multiauth/bin/Debug.zip
+/multiauth/FormsAuthenticationModule/bin
+/multiauth/FormsAuthenticationModule/obj
